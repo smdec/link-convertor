@@ -1,0 +1,26 @@
+services:
+  postgres:
+    image: postgres
+    restart: always
+    environment:
+      - DATABASE_HOST=127.0.0.1
+      - POSTGRES_USER=user
+      - POSTGRES_PASSWORD=user_pass
+      - POSTGRES_DB=DeepLink
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./docker_postgres_init.sql:/docker-entrypoint-initdb.d/docker_postgres_init.sql
+    healthcheck:
+      test: pg_isready -U user -d DeepLink
+      interval: 10s
+      timeout: 3s
+      retries: 35
+
+  link-converter:
+    build: .
+    depends_on:
+      postgres:
+        condition: service_healthy
+    ports:
+      - "8080:8080"

@@ -21,3 +21,17 @@
 
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
+
+# IDE files
+.project
+.idea
+.settings
+postgres-db-volume
+*.iml
+*.imr
+.env
+
+# maven ignores
+target/
+.mvn
+.m2
