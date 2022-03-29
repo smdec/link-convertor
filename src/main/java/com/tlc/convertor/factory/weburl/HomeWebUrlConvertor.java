@@ -8,6 +8,6 @@ import lombok.extern.slf4j.Slf4j;
 public class HomeWebUrlConvertor implements Convertor {
     @Override
     public String convert(String url) {
-        return Constant.WEB_URL_TEMPLATE;
+        return Constant.WEB_URL_HOME_TEMPLATE;
     }
 }

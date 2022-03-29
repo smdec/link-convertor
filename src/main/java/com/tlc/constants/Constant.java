@@ -7,13 +7,14 @@ public class Constant {
     public final int ONE = 1;
     public final int TWO = 2;
     public final int THREE = 3;
+    public final int FOUR = 4;
 
     public final String CAMPAIGN_ID = "CampaignId";
     public final String BASE_DEEPLINK = "ty://?Page=Product&ContentId=";
     public final String BASE_WEB_URL = "https://www.trendyol.com/brand/name-p-";
 
     public final String DEEPLINK_HOME_TEMPLATE = "ty://?Page=Home";
-    public final String WEB_URL_TEMPLATE = "https://www.trendyol.com";
+    public final String WEB_URL_HOME_TEMPLATE = "https://www.trendyol.com";
 
     public final String DEEPLINK_SEARCH_TEMPLATE = "ty://?Page=Search&Query=${Query}";
     public final String WEB_URL_SEARCH_TEMPLATE = "https://www.trendyol.com/sr?q=${Query}";

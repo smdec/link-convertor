@@ -1,5 +1,6 @@
 package com.tlc.convertor.parse;
 
+import com.tlc.constants.Constant;
 import lombok.experimental.UtilityClass;
 import org.apache.commons.lang3.StringUtils;
 
@@ -15,22 +16,22 @@ public class UrlParser {
     public Map<String, String> parseProductionDetailWebUrl(String url) {
         Map<String, String> valuesMap = new HashMap<>();
         var arr = url.split("-p-");
-        if (arr.length < 1) {
+        if (arr.length < Constant.ONE) {
             throw new IllegalArgumentException("The url size is none");
         }
         var list = multipleSplitUrl(arr[1], "?&");
 
         switch (list.size()) {
-            case 1:
+            case Constant.ONE:
                 valuesMap.put("ContentId", list.get(0));
                 break;
-            case 2:
+            case Constant.TWO:
                 var param = Arrays.asList(list.get(1).split("="));
 
                 valuesMap.put("ContentId", list.get(0));
                 valuesMap.put(param.get(0).equals("boutiqueId") ? "CampaignId" : "MerchantId", param.get(1));
                 break;
-            case 3:
+            case Constant.THREE:
                 var firstParam = Arrays.asList(list.get(1).split("="));
                 var secondParam = Arrays.asList(list.get(2).split("="));
 
@@ -47,22 +48,22 @@ public class UrlParser {
     public Map<String, String> parseProductionDetailDeeplink(String url) {
         Map<String, String> valuesMap = new HashMap<>();
         var arr = url.split("Product&");
-        if (arr.length < 1) {
+        if (arr.length < Constant.ONE) {
             throw new IllegalArgumentException("The url size is none");
         }
         var list = Arrays.asList(url.split("&"));
 
         switch (list.size()) {
-            case 2:
+            case Constant.TWO:
                 valuesMap.put("ContentId", list.get(1).split("=")[1]);
                 break;
-            case 3:
+            case Constant.THREE:
                 var param = Arrays.asList(list.get(2).split("="));
 
                 valuesMap.put("ContentId", list.get(1).split("=")[1]);
                 valuesMap.put(param.get(0).equals("CampaignId") ? "CampaignId" : "MerchantId", param.get(1));
                 break;
-            case 4:
+            case Constant.FOUR:
                 var firstParam = Arrays.asList(list.get(2).split("="));
                 var secondParam = Arrays.asList(list.get(3).split("="));
 
