@@ -1,6 +1,6 @@
 package com.tlc.convertor.utils;
 
-import com.tlc.convertor.enums.UrlType;
+import com.tlc.convertor.enums.WebUrlType;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
@@ -28,22 +28,22 @@ class UrlTypeConvertorTest {
     
     @Test
     void testShouldReturnProductDetailsType() {
-        productDetailUrls.forEach(p -> assertEquals(WebUrlTypeConvertor.getType(p), UrlType.PRODUCT_DETAIL));
-        productDetailUrls.forEach(p -> assertNotEquals(WebUrlTypeConvertor.getType(p), UrlType.SEARCH));
-        productDetailUrls.forEach(p -> assertNotEquals(WebUrlTypeConvertor.getType(p), UrlType.HOME));
+        productDetailUrls.forEach(p -> assertEquals(WebUrlTypeConvertor.getType(p), WebUrlType.PRODUCT_DETAIL));
+        productDetailUrls.forEach(p -> assertNotEquals(WebUrlTypeConvertor.getType(p), WebUrlType.SEARCH));
+        productDetailUrls.forEach(p -> assertNotEquals(WebUrlTypeConvertor.getType(p), WebUrlType.HOME));
     }
 
     @Test
     void testShouldReturnSearchType() {
-        searchUrls.forEach(p -> assertEquals(WebUrlTypeConvertor.getType(p), UrlType.SEARCH));
-        searchUrls.forEach(p -> assertNotEquals(WebUrlTypeConvertor.getType(p), UrlType.PRODUCT_DETAIL));
-        searchUrls.forEach(p -> assertNotEquals(WebUrlTypeConvertor.getType(p), UrlType.HOME));
+        searchUrls.forEach(p -> assertEquals(WebUrlTypeConvertor.getType(p), WebUrlType.SEARCH));
+        searchUrls.forEach(p -> assertNotEquals(WebUrlTypeConvertor.getType(p), WebUrlType.PRODUCT_DETAIL));
+        searchUrls.forEach(p -> assertNotEquals(WebUrlTypeConvertor.getType(p), WebUrlType.HOME));
     }
 
     @Test
     void testShouldReturnHomeType() {
-        homeUrls.forEach(p -> assertEquals(WebUrlTypeConvertor.getType(p), UrlType.HOME));
-        homeUrls.forEach(p -> assertNotEquals(WebUrlTypeConvertor.getType(p), UrlType.SEARCH));
-        homeUrls.forEach(p -> assertNotEquals(WebUrlTypeConvertor.getType(p), UrlType.PRODUCT_DETAIL));
+        homeUrls.forEach(p -> assertEquals(WebUrlTypeConvertor.getType(p), WebUrlType.HOME));
+        homeUrls.forEach(p -> assertNotEquals(WebUrlTypeConvertor.getType(p), WebUrlType.SEARCH));
+        homeUrls.forEach(p -> assertNotEquals(WebUrlTypeConvertor.getType(p), WebUrlType.PRODUCT_DETAIL));
     }
 }

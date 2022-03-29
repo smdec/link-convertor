@@ -32,21 +32,22 @@ public class ProductDetailDeeplinkConvertor implements Convertor {
         ProductDetailDeeplinkTemplate template;
 
         switch (mapParams.size()) {
-            case 1:
+            case Constant.ONE:
                 template = ProductDetailDeeplinkTemplate.ONLY_CONTENT;
                 break;
-            case 2:
+            case Constant.TWO:
                 if (mapParams.containsKey(Constant.CAMPAIGN_ID)) {
                     template = ProductDetailDeeplinkTemplate.CONTENT_CAMPAIGN;
                 } else {
                     template = ProductDetailDeeplinkTemplate.CONTENT_MERCHANT;
                 }
                 break;
-            case 3:
+            case Constant.THREE:
                 template = ProductDetailDeeplinkTemplate.CONTENT_CAMPAIGN_MERCHANT;
                 break;
             default:
-                throw new IllegalArgumentException("Should be some exception");
+                throw new IllegalArgumentException(
+                        String.format("Product detail webUrl template not found url: %s", url));
         }
         return stringSubstitutor.replace(template.getTemplate());
     }

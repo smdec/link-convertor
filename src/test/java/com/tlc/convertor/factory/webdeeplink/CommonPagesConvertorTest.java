@@ -9,7 +9,7 @@ class CommonPagesConvertorTest {
 
     @Test
     void testShouldReturnQuery() {
-        var common = new HomeLinkConvertor();
+        var common = new HomeDeeplinkConvertor();
         assertEquals(common.convert(COMMON_URL), "ty://?Page=Home");
     }
 }

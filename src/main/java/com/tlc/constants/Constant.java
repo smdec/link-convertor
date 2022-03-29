@@ -4,6 +4,10 @@ import lombok.experimental.UtilityClass;
 
 @UtilityClass
 public class Constant {
+    public final int ONE = 1;
+    public final int TWO = 2;
+    public final int THREE = 3;
+
     public final String CAMPAIGN_ID = "CampaignId";
     public final String BASE_DEEPLINK = "ty://?Page=Product&ContentId=";
     public final String BASE_WEB_URL = "https://www.trendyol.com/brand/name-p-";

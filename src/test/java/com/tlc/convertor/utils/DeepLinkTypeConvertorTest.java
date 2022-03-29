@@ -1,6 +1,7 @@
 package com.tlc.convertor.utils;
 
-import com.tlc.convertor.enums.UrlType;
+import com.tlc.convertor.enums.DeeplinkType;
+import com.tlc.convertor.enums.WebUrlType;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
@@ -28,22 +29,22 @@ class DeepLinkTypeConvertorTest {
 
     @Test
     void testShouldReturnProductDetailsType() {
-        productDetailUrls.forEach(p -> assertEquals(DeepLinkTypeConvertor.getType(p), UrlType.PRODUCT_DETAIL));
-        productDetailUrls.forEach(p -> assertNotEquals(DeepLinkTypeConvertor.getType(p), UrlType.SEARCH));
-        productDetailUrls.forEach(p -> assertNotEquals(DeepLinkTypeConvertor.getType(p), UrlType.HOME));
+        productDetailUrls.forEach(p -> assertEquals(DeepLinkTypeConvertor.getType(p), DeeplinkType.PRODUCT_DETAIL));
+        productDetailUrls.forEach(p -> assertNotEquals(DeepLinkTypeConvertor.getType(p), DeeplinkType.SEARCH));
+        productDetailUrls.forEach(p -> assertNotEquals(DeepLinkTypeConvertor.getType(p), DeeplinkType.HOME));
     }
 
     @Test
     void testShouldReturnSearchType() {
-        searchUrls.forEach(p -> assertEquals(DeepLinkTypeConvertor.getType(p), UrlType.SEARCH));
-        searchUrls.forEach(p -> assertNotEquals(DeepLinkTypeConvertor.getType(p), UrlType.PRODUCT_DETAIL));
-        searchUrls.forEach(p -> assertNotEquals(DeepLinkTypeConvertor.getType(p), UrlType.HOME));
+        searchUrls.forEach(p -> assertEquals(DeepLinkTypeConvertor.getType(p), DeeplinkType.SEARCH));
+        searchUrls.forEach(p -> assertNotEquals(DeepLinkTypeConvertor.getType(p), DeeplinkType.PRODUCT_DETAIL));
+        searchUrls.forEach(p -> assertNotEquals(DeepLinkTypeConvertor.getType(p), DeeplinkType.HOME));
     }
 
     @Test
     void testShouldReturnHomeType() {
-        homeUrls.forEach(p -> assertEquals(DeepLinkTypeConvertor.getType(p), UrlType.HOME));
-        homeUrls.forEach(p -> assertNotEquals(DeepLinkTypeConvertor.getType(p), UrlType.SEARCH));
-        homeUrls.forEach(p -> assertNotEquals(DeepLinkTypeConvertor.getType(p), UrlType.PRODUCT_DETAIL));
+        homeUrls.forEach(p -> assertEquals(DeepLinkTypeConvertor.getType(p), DeeplinkType.HOME));
+        homeUrls.forEach(p -> assertNotEquals(DeepLinkTypeConvertor.getType(p), DeeplinkType.SEARCH));
+        homeUrls.forEach(p -> assertNotEquals(DeepLinkTypeConvertor.getType(p), DeeplinkType.PRODUCT_DETAIL));
     }
 }
