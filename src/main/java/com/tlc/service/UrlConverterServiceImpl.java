@@ -11,11 +11,15 @@ import org.springframework.stereotype.Service;
 @Service
 @Slf4j
 @RequiredArgsConstructor
-public class UrlConverterServiceImpl implements UrlConverterService{
+public class UrlConverterServiceImpl implements UrlConverterService {
     private final UrlRepository repository;
     private final UrlConvertor convertor;
     private final DeeplinkEntityMapper mapper;
 
+    /**
+     * @param webUrl
+     * @return UrlDTO
+     */
     @Override
     public UrlDTO urlToDeeplink(UrlDTO webUrl) {
         log.debug("Start converting from webUrl to deeplink webUrl: {}", webUrl);
@@ -25,6 +29,10 @@ public class UrlConverterServiceImpl implements UrlConverterService{
         return mapper.toDTO(repository.save(entity));
     }
 
+    /**
+     * @param deeplink
+     * @return UrlDTO
+     */
     @Override
     public UrlDTO deeplinkToUrl(UrlDTO deeplink) {
         log.debug("Start converting from deeplink to deeplink: {}", deeplink);

@@ -4,8 +4,6 @@ import com.tlc.constants.Constant;
 import lombok.experimental.UtilityClass;
 import org.apache.commons.lang3.StringUtils;
 
-import java.net.MalformedURLException;
-import java.net.URL;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
@@ -13,6 +11,10 @@ import java.util.Map;
 
 @UtilityClass
 public class UrlParser {
+    /**
+     * @param url
+     * @return map of params
+     */
     public Map<String, String> parseProductionDetailWebUrl(String url) {
         Map<String, String> valuesMap = new HashMap<>();
         var arr = url.split("-p-");
@@ -45,6 +47,10 @@ public class UrlParser {
         return valuesMap;
     }
 
+    /**
+     * @param url
+     * @return map of params
+     */
     public Map<String, String> parseProductionDetailDeeplink(String url) {
         Map<String, String> valuesMap = new HashMap<>();
         var arr = url.split("Product&");
@@ -78,6 +84,10 @@ public class UrlParser {
         return valuesMap;
     }
 
+    /**
+     * @param url
+     * @return map of params
+     */
     public Map<String, String> parseSearchWebUrl(String url) {
         Map<String, String> valuesMap = new HashMap<>();
         var list = Arrays.asList(url.split("q="));
@@ -86,27 +96,41 @@ public class UrlParser {
             throw new IllegalArgumentException("The url size is none");
         }
 
-        valuesMap.put("Query",list.get(1));
+        valuesMap.put("Query", list.get(1));
 
         return valuesMap;
     }
 
+    /**
+     * @param url
+     * @return map of params
+     */
     public Map<String, String> parseSearchDetailDeeplink(String url) {
         Map<String, String> valuesMap = new HashMap<>();
-        var list = singleSplitUrl(url,"Search&Query=");
+        var list = singleSplitUrl(url, "Search&Query=");
 
         if (list.isEmpty()) {
             throw new IllegalArgumentException("The url size is none");
         }
 
-        valuesMap.put("Query",list.get(1));
+        valuesMap.put("Query", list.get(1));
         return valuesMap;
     }
 
+    /**
+     * @param url
+     * @param reg
+     * @return arrays slit of url
+     */
     private List<String> multipleSplitUrl(String url, String reg) {
         return Arrays.asList(StringUtils.split(url, reg));
     }
 
+    /**
+     * @param url
+     * @param reg
+     * @return arrays slit of url
+     */
     private List<String> singleSplitUrl(String url, String reg) {
         return Arrays.asList(url.split(reg));
     }

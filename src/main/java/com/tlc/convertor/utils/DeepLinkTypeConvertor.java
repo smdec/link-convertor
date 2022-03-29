@@ -5,6 +5,10 @@ import lombok.experimental.UtilityClass;
 
 @UtilityClass
 public class DeepLinkTypeConvertor {
+    /**
+     * @param url
+     * @return DeeplinkType
+     */
     public DeeplinkType getType(String url) {
         if (url.contains("-p-")) {
             return DeeplinkType.PRODUCT_DETAIL;

@@ -10,6 +10,10 @@ import java.util.stream.Stream;
 @Component
 @Slf4j
 public class WebUrlConvertorFactory {
+    /**
+     * @param WebUrlType type
+     * @return implementation of the Convertor
+     */
     public Convertor getConvertor(WebUrlType type) {
         return Stream.of(WebUrlType.values())
                 .filter(t -> t.name().equals(type.name()))
