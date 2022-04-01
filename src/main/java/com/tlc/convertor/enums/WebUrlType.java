@@ -5,6 +5,9 @@ import com.tlc.convertor.factory.weburl.HomeWebUrlConvertor;
 import com.tlc.convertor.factory.weburl.ProductDetailWebUrlConvertor;
 import com.tlc.convertor.factory.weburl.SearchWebUrlConvertor;
 
+/**
+ * Represents enum WebUrlType for weburl converting
+ */
 public enum WebUrlType {
     PRODUCT_DETAIL(new ProductDetailWebUrlConvertor()),
     SEARCH(new SearchWebUrlConvertor()),

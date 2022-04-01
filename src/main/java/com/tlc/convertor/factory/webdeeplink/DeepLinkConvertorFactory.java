@@ -7,10 +7,15 @@ import org.springframework.stereotype.Component;
 
 import java.util.stream.Stream;
 
+/**
+ * Represents Factory for deep link converting
+ */
 @Component
 @Slf4j
 public class DeepLinkConvertorFactory {
     /**
+     * Method for decisioning factory web url to deep link
+     *
      * @param DeeplinkType type
      * @return implementation of the Convertor
      */

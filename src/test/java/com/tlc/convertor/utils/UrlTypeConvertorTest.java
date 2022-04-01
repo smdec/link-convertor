@@ -13,6 +13,9 @@ class UrlTypeConvertorTest {
     private static List<String> searchUrls = new ArrayList<>();
     private static List<String> homeUrls = new ArrayList<>();
 
+    private static final String TURKISH_STRING = "ütü";
+    private static final String TURKISH_ENCODED_STRING = "%C3%BCt%C3%BC";
+
     static {
         productDetailUrls.add("ty://?Page=Product&ContentId=1925865");
         productDetailUrls.add("ty://?Page=Product&ContentId=1925865&CampaignId=439892");

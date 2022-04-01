@@ -4,15 +4,24 @@ import com.tlc.constants.Constant;
 import lombok.experimental.UtilityClass;
 import org.apache.commons.lang3.StringUtils;
 
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
+import java.nio.charset.StandardCharsets;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+
+/**
+ * Util helper class with methods for working with url data
+ */
 @UtilityClass
 public class UrlParser {
     /**
-     * @param url
+     * Method to extract parameters from url as List
+     *
+     * @param url value of URL param
      * @return map of params
      */
     public Map<String, String> parseProductionDetailWebUrl(String url) {
@@ -48,7 +57,9 @@ public class UrlParser {
     }
 
     /**
-     * @param url
+     * Method to extract parameters from url as List
+     *
+     * @param url value of URL param
      * @return map of params
      */
     public Map<String, String> parseProductionDetailDeeplink(String url) {
@@ -85,7 +96,9 @@ public class UrlParser {
     }
 
     /**
-     * @param url
+     * Method to extract parameters from url as List
+     *
+     * @param url value of URL param
      * @return map of params
      */
     public Map<String, String> parseSearchWebUrl(String url) {
@@ -102,7 +115,9 @@ public class UrlParser {
     }
 
     /**
-     * @param url
+     * Method to extract parameters from url as List
+     *
+     * @param url value of URL param
      * @return map of params
      */
     public Map<String, String> parseSearchDetailDeeplink(String url) {
@@ -118,8 +133,8 @@ public class UrlParser {
     }
 
     /**
-     * @param url
-     * @param reg
+     * @param url value of URL param
+     * @param reg value of URL param
      * @return arrays slit of url
      */
     private List<String> multipleSplitUrl(String url, String reg) {
@@ -127,11 +142,21 @@ public class UrlParser {
     }
 
     /**
-     * @param url
-     * @param reg
+     * @param url value of URL param
+     * @param reg value of URL param
      * @return arrays slit of url
      */
     private List<String> singleSplitUrl(String url, String reg) {
         return Arrays.asList(url.split(reg));
+    }
+
+    /**
+     * Method for url encode query value
+     *
+     * @param value value of URL param
+     * @return encoded value
+     */
+    public static String encodeValue(String value) throws UnsupportedEncodingException {
+        return URLEncoder.encode(value, StandardCharsets.UTF_8.toString());
     }
 }

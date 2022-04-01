@@ -7,12 +7,17 @@ import org.springframework.stereotype.Component;
 
 import java.util.stream.Stream;
 
+/**
+ * Represents deeplink Convertor
+ */
 @Component
 @Slf4j
 public class WebUrlConvertorFactory {
     /**
-     * @param WebUrlType type
-     * @return implementation of the Convertor
+     * Method for converting deep link to web url
+     *
+     * @param url web url to be converted
+     * @return deep link
      */
     public Convertor getConvertor(WebUrlType type) {
         return Stream.of(WebUrlType.values())

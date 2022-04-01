@@ -9,6 +9,9 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExcep
 
 import javax.persistence.EntityNotFoundException;
 
+/**
+ * Represents custom Exception class for wrap internal exception during application running
+ */
 @ControllerAdvice
 @Slf4j
 public class RestResponseEntityExceptionHandler extends ResponseEntityExceptionHandler {

@@ -3,9 +3,15 @@ package com.tlc.convertor.utils;
 import com.tlc.convertor.enums.WebUrlType;
 import lombok.experimental.UtilityClass;
 
+/**
+ * Represents convertor type
+ *
+ */
 @UtilityClass
 public class WebUrlTypeConvertor {
     /**
+     * Method return type of WebUrl convertor
+     *
      * @param url
      * @return WebUrlType
      */

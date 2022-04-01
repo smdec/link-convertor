@@ -5,13 +5,30 @@ import com.tlc.model.UrlEntity;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 
+/**
+ * Represents mapper
+ *
+ */
 @Mapper(componentModel = "spring")
 public interface DeeplinkEntityMapper {
-    @Mapping(source = "url", target = "url")
-    @Mapping(source = "deepLink", target = "deepLink")
-    UrlEntity toEntity(UrlDTO deeplink);
 
+    /**
+     * Method convert UrlDTO to UrlEntity
+     *
+     * @param dto
+     * @returnu entity
+     */
     @Mapping(source = "url", target = "url")
     @Mapping(source = "deepLink", target = "deepLink")
-    UrlDTO toDTO(UrlEntity deeplink);
+    UrlEntity toEntity(UrlDTO dto);
+
+    /**
+     * Method convert UrlEntity to UrlDTO
+     *
+     * @param entity
+     * @return dto
+     */
+    @Mapping(source = "url", target = "url")
+    @Mapping(source = "deepLink", target = "deepLink")
+    UrlDTO toDTO(UrlEntity entity);
 }

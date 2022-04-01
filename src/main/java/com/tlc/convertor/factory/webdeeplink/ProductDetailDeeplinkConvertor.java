@@ -6,6 +6,9 @@ import com.tlc.convertor.parse.UrlParser;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.text.StringSubstitutor;
 
+/**
+ * Represents deep link Convertor
+ */
 @Slf4j
 public class ProductDetailDeeplinkConvertor implements Convertor {
     enum ProductDetailDeeplinkTemplate {
@@ -25,6 +28,12 @@ public class ProductDetailDeeplinkConvertor implements Convertor {
         }
     }
 
+    /**
+     * Method for converting web url to deep link
+     *
+     * @param url web url to be converted
+     * @return deep link
+     */
     @Override
     public String convert(String url) {
         var mapParams = UrlParser.parseProductionDetailWebUrl(url);

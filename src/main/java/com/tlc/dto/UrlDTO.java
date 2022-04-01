@@ -2,6 +2,9 @@ package com.tlc.dto;
 
 import lombok.*;
 
+/**
+ * Represents DTO
+ */
 @Data
 @Builder
 @Getter
