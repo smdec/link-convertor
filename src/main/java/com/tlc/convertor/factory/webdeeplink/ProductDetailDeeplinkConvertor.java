@@ -6,6 +6,9 @@ import com.tlc.convertor.parse.UrlParser;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.text.StringSubstitutor;
 
+import java.net.MalformedURLException;
+import java.net.URL;
+
 /**
  * Represents deep link Convertor
  */

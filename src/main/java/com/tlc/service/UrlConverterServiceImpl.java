@@ -1,7 +1,9 @@
 package com.tlc.service;
 
 import com.tlc.convertor.UrlConvertor;
-import com.tlc.dto.UrlDTO;
+import com.tlc.dto.UrlDtoRequest;
+import com.tlc.dto.DeepLinkResponse;
+import com.tlc.dto.WebUrlResponse;
 import com.tlc.mapper.DeeplinkEntityMapper;
 import com.tlc.repository.UrlRepository;
 import lombok.RequiredArgsConstructor;
@@ -28,17 +30,17 @@ public class UrlConverterServiceImpl implements UrlConverterService {
      * @return UrlDTO object with converted link
      */
     @Override
-    public UrlDTO urlToDeeplink(@NonNull UrlDTO webUrl) {
+    public DeepLinkResponse urlToDeeplink(@NonNull UrlDtoRequest webUrl) {
         var cashDeeplink = repository.findByUrl(webUrl.getUrl());
         if (cashDeeplink.isPresent()) {
-            return mapper.toDTO(repository.save(cashDeeplink.get()));
+            return mapper.toDeepLinkResponse(repository.save(cashDeeplink.get()));
         }
 
         log.debug("Start converting from webUrl to deeplink webUrl: {}", webUrl);
         var entity = mapper.toEntity(webUrl);
         entity.setDeepLink(convertor.convertToDeepLink(entity.getUrl()));
         log.debug("Result of converting webUrl to deeplink entity: {}", entity);
-        return mapper.toDTO(repository.save(entity));
+        return mapper.toDeepLinkResponse(repository.save(entity));
     }
 
     /**
@@ -48,16 +50,16 @@ public class UrlConverterServiceImpl implements UrlConverterService {
      * @return UrlDTO object with converted link
      */
     @Override
-    public UrlDTO deeplinkToUrl(@NonNull UrlDTO deeplink) {
-        var cashDeeplink = repository.findByDeeplink(deeplink.getDeepLink());
+    public WebUrlResponse deeplinkToUrl(@NonNull UrlDtoRequest deeplink) {
+        var cashDeeplink = repository.findByDeepLink(deeplink.getUrl());
         if (cashDeeplink.isPresent()) {
-            return mapper.toDTO(repository.save(cashDeeplink.get()));
+            return mapper.toWebUrlResponse(repository.save(cashDeeplink.get()));
         }
 
         log.debug("Start converting from deeplink to deeplink: {}", deeplink);
         var entity = mapper.toEntity(deeplink);
         entity.setUrl(convertor.convertToUrl(entity.getDeepLink()));
         log.debug("Result of converting from webUrl to entity: {}", entity);
-        return mapper.toDTO(repository.save(entity));
+        return mapper.toWebUrlResponse(repository.save(entity));
     }
 }

@@ -10,7 +10,6 @@ import lombok.*;
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
-public class UrlDTO {
+public class UrlDtoRequest {
     private String url;
-    private String deepLink;
 }

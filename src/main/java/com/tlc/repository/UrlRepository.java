@@ -12,5 +12,5 @@ import java.util.Optional;
 @Repository
 public interface UrlRepository extends JpaRepository<UrlEntity, Long> {
     Optional<UrlEntity> findByUrl(String url);
-    Optional<UrlEntity> findByDeeplink(String deepLink);
+    Optional<UrlEntity> findByDeepLink(String deepLink);
 }

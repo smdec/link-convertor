@@ -1,6 +1,8 @@
 package com.tlc.mapper;
 
-import com.tlc.dto.UrlDTO;
+import com.tlc.dto.UrlDtoRequest;
+import com.tlc.dto.DeepLinkResponse;
+import com.tlc.dto.WebUrlResponse;
 import com.tlc.model.UrlEntity;
 import com.tlc.util.TestUtil;
 import org.junit.jupiter.api.Test;
@@ -19,19 +21,23 @@ class DeeplinkEntityMapperTest {
 
     @Test
     void testToEntity() {
-        var dto = TestUtil.nextObject(UrlDTO.class);
+        var dto = TestUtil.nextObject(UrlDtoRequest.class);
         var entity = mapper.toEntity(dto);
 
         assertEquals(entity.getUrl(), dto.getUrl());
-        assertEquals(entity.getDeepLink(), dto.getDeepLink());
+        assertEquals(UrlDtoRequest.class, dto.getClass());
     }
 
     @Test
     void testToDTO() {
         var entity = TestUtil.nextObject(UrlEntity.class);
-        var dto = mapper.toDTO(entity);
+        var deepLink = mapper.toDeepLinkResponse(entity);
+        var webUrl = mapper.toWebUrlResponse(entity);
 
-        assertEquals(entity.getUrl(), dto.getUrl());
-        assertEquals(entity.getDeepLink(), dto.getDeepLink());
+        assertEquals(entity.getDeepLink(), deepLink.getUrl());
+        assertEquals(DeepLinkResponse.class, deepLink.getClass());
+
+        assertEquals(entity.getUrl(), webUrl.getUrl());
+        assertEquals(WebUrlResponse.class, webUrl.getClass());
     }
 }

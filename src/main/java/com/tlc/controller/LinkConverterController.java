@@ -1,6 +1,8 @@
 package com.tlc.controller;
 
-import com.tlc.dto.UrlDTO;
+import com.tlc.dto.UrlDtoRequest;
+import com.tlc.dto.DeepLinkResponse;
+import com.tlc.dto.WebUrlResponse;
 import com.tlc.service.UrlConverterService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -26,7 +28,7 @@ public class LinkConverterController {
      * @return ResponseEntity with UrlDTO that wraps converted link and http status code
      */
     @PostMapping("deep-link")
-    public ResponseEntity<UrlDTO> urlToDeeplink(@RequestBody UrlDTO webUrl) {
+    public ResponseEntity<DeepLinkResponse> urlToDeeplink(@RequestBody UrlDtoRequest webUrl) {
         return ResponseEntity.ok(service.urlToDeeplink(webUrl));
     }
 
@@ -37,7 +39,7 @@ public class LinkConverterController {
      * @return ResponseEntity with UrlDTO that wraps converted link and http status code
      */
     @PostMapping("web-url")
-    public ResponseEntity<UrlDTO> DeeplinkToUrl(@RequestBody UrlDTO deeplink) {
+    public ResponseEntity<WebUrlResponse> DeeplinkToUrl(@RequestBody UrlDtoRequest deeplink) {
         return ResponseEntity.ok(service.deeplinkToUrl(deeplink));
     }
 }

@@ -1,6 +1,8 @@
 package com.tlc.mapper;
 
-import com.tlc.dto.UrlDTO;
+import com.tlc.dto.UrlDtoRequest;
+import com.tlc.dto.DeepLinkResponse;
+import com.tlc.dto.WebUrlResponse;
 import com.tlc.model.UrlEntity;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
@@ -19,8 +21,16 @@ public interface DeeplinkEntityMapper {
      * @returnu entity
      */
     @Mapping(source = "url", target = "url")
-    @Mapping(source = "deepLink", target = "deepLink")
-    UrlEntity toEntity(UrlDTO dto);
+    UrlEntity toEntity(UrlDtoRequest dto);
+
+    /**
+     * Method convert UrlEntity to UrlDTO
+     *
+     * @param entity
+     * @return dto
+     */
+    @Mapping(source = "deepLink", target = "url")
+    DeepLinkResponse toDeepLinkResponse(UrlEntity entity);
 
     /**
      * Method convert UrlEntity to UrlDTO
@@ -29,6 +39,5 @@ public interface DeeplinkEntityMapper {
      * @return dto
      */
     @Mapping(source = "url", target = "url")
-    @Mapping(source = "deepLink", target = "deepLink")
-    UrlDTO toDTO(UrlEntity entity);
+    WebUrlResponse toWebUrlResponse(UrlEntity entity);
 }
