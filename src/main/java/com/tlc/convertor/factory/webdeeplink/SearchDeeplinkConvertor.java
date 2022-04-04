@@ -2,12 +2,14 @@ package com.tlc.convertor.factory.webdeeplink;
 
 import com.tlc.constants.Constant;
 import com.tlc.convertor.factory.Convertor;
-import com.tlc.convertor.parse.UrlParser;
+import com.tlc.convertor.utils.UrlUtils;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.text.StringSubstitutor;
 
 /**
  * Represents deep link Convertor
  */
+@Slf4j
 public class SearchDeeplinkConvertor implements Convertor {
 
     /**
@@ -18,8 +20,7 @@ public class SearchDeeplinkConvertor implements Convertor {
      */
     @Override
     public String convert(String url) {
-        var mapParams = UrlParser.parseSearchWebUrl(url);
-        StringSubstitutor stringSubstitutor = new StringSubstitutor(mapParams);
+        StringSubstitutor stringSubstitutor = new StringSubstitutor(UrlUtils.extractUrlParamsAsMapWebUrl(url));
         return stringSubstitutor.replace(Constant.DEEPLINK_SEARCH_TEMPLATE);
     }
 }

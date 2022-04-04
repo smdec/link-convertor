@@ -1,6 +1,8 @@
 package com.tlc.model;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 
@@ -10,6 +12,8 @@ import javax.persistence.*;
 @Entity
 @Table(name = "url")
 @Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class UrlEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

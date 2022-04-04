@@ -6,8 +6,7 @@ import com.tlc.convertor.parse.UrlParser;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.text.StringSubstitutor;
 
-import java.net.MalformedURLException;
-import java.net.URL;
+import java.util.Objects;
 
 /**
  * Represents deep link Convertor
@@ -43,7 +42,7 @@ public class ProductDetailDeeplinkConvertor implements Convertor {
         StringSubstitutor stringSubstitutor = new StringSubstitutor(mapParams);
         ProductDetailDeeplinkTemplate template;
 
-        switch (mapParams.size()) {
+        switch (Objects.requireNonNull(mapParams).size()) {
             case Constant.ONE:
                 template = ProductDetailDeeplinkTemplate.ONLY_CONTENT;
                 break;
