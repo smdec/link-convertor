@@ -1,6 +1,5 @@
-package com.tlc.convertor.factory.webdeeplink;
+package com.tlc.convertor.strategy.deeplink;
 
-import com.tlc.convertor.parse.UrlParser;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;

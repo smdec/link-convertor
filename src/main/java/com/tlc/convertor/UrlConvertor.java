@@ -1,21 +1,24 @@
 package com.tlc.convertor;
 
-import com.tlc.convertor.factory.webdeeplink.DeepLinkConvertorFactory;
-import com.tlc.convertor.factory.weburl.WebUrlConvertorFactory;
-import com.tlc.convertor.utils.DeepLinkTypeConvertor;
-import com.tlc.convertor.utils.WebUrlTypeConvertor;
+import com.tlc.convertor.strategy.deeplink.DeepLinkConvertorStrategy;
+import com.tlc.convertor.strategy.weburl.WebUrlConvertorStrategy;
+import com.tlc.exeption.InvalidLinkException;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
+
+import java.net.MalformedURLException;
 
 /**
  * Represents logic for resolving deep link strategy to be used upon conversion of web url to deep link
  */
 @Component
 @RequiredArgsConstructor
+@Slf4j
 public class UrlConvertor {
 
-    private final DeepLinkConvertorFactory deepLinkFactory;
-    private final WebUrlConvertorFactory urlConvertorFactory;
+    private final DeepLinkConvertorStrategy deepLinkFactory;
+    private final WebUrlConvertorStrategy urlConvertorFactory;
 
     /**
      * Method that find strategy convert url from web-url to deeplink
@@ -24,7 +27,12 @@ public class UrlConvertor {
      * @return converted from weburl to deeplink
      */
     public String convertToDeepLink(String origin) {
-        return deepLinkFactory.getConvertor(DeepLinkTypeConvertor.getType(origin)).convert(origin);
+        try {
+            return deepLinkFactory.getConvertor(origin).convert(origin);
+        } catch (MalformedURLException e) {
+            log.error(e.getMessage());
+            throw new InvalidLinkException(e.getMessage());
+        }
     }
 
     /**
@@ -34,6 +42,11 @@ public class UrlConvertor {
      * @return converted from deeplink to weburl
      */
     public String convertToUrl(String origin) {
-        return urlConvertorFactory.getConvertor(WebUrlTypeConvertor.getType(origin)).convert(origin);
+        try {
+            return urlConvertorFactory.getConvertor(origin).convert(origin);
+        } catch (MalformedURLException e) {
+            log.error(e.getMessage());
+            throw new InvalidLinkException(e.getMessage());
+        }
     }
 }

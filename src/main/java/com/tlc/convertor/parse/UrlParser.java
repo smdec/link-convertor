@@ -149,14 +149,4 @@ public class UrlParser {
     private List<String> singleSplitUrl(String url, String reg) {
         return Arrays.asList(url.split(reg));
     }
-
-    /**
-     * Method for url encode query value
-     *
-     * @param value value of URL param
-     * @return encoded value
-     */
-    public static String encodeValue(String value) throws UnsupportedEncodingException {
-        return URLEncoder.encode(value, StandardCharsets.UTF_8.toString());
-    }
 }

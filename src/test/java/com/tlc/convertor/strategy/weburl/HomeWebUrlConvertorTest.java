@@ -1,15 +1,15 @@
-package com.tlc.convertor.factory.weburl;
+package com.tlc.convertor.strategy.weburl;
 
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 class HomeWebUrlConvertorTest {
-    private final String SEARCH_URL = "ty://?Page=Favorites";
+    private final String HOME_URL = "ty://?Page=Favorites";
 
     @Test
     void testShouldReturnWebUrl() {
         var search = new HomeWebUrlConvertor();
-        assertEquals("https://www.trendyol.com", search.convert(SEARCH_URL));
+        assertEquals("https://www.trendyol.com", search.convert(HOME_URL));
     }
 }

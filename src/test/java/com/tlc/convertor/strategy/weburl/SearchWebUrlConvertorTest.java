@@ -1,4 +1,4 @@
-package com.tlc.convertor.factory.weburl;
+package com.tlc.convertor.strategy.weburl;
 
 import org.junit.jupiter.api.Test;
 

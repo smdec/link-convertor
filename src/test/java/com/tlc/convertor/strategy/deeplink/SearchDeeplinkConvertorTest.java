@@ -1,4 +1,4 @@
-package com.tlc.convertor.factory.webdeeplink;
+package com.tlc.convertor.strategy.deeplink;
 
 import org.junit.jupiter.api.Test;
 

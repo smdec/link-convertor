@@ -1,15 +1,17 @@
-package com.tlc.convertor.factory.weburl;
+package com.tlc.convertor.strategy.weburl;
 
 import com.tlc.constants.Constant;
-import com.tlc.convertor.factory.Convertor;
+import com.tlc.convertor.strategy.Convertor;
 import com.tlc.convertor.parse.UrlParser;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.text.StringSubstitutor;
+import org.springframework.stereotype.Component;
 
 /**
  * Represents deeplink Convertor
  */
 @Slf4j
+@Component
 public class ProductDetailWebUrlConvertor implements Convertor {
     enum ProductDetailWebUrlTemplate {
         ONLY_CONTENT(Constant.WEB_URL_ONLY_CONTENT),
@@ -59,5 +61,10 @@ public class ProductDetailWebUrlConvertor implements Convertor {
                         String.format("Product detail webUrl template not found url: %s", url));
         }
         return stringSubstitutor.replace(template.getTemplate());
+    }
+
+    @Override
+    public boolean isStrategyAcceptable(String path) {
+        return path.contains(Constant.DEEP_LINK_PRODUCT_DETAIL_PARAM);
     }
 }

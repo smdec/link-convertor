@@ -9,12 +9,18 @@ public class Constant {
     public final int THREE = 3;
     public final int FOUR = 4;
 
+    public final String WEB_URL_PRODUCT_DETAIL_PARAM = "-p-";
+    public final String WEB_URL_SEARCH_PAGE_PARAM = "/sr";
+
     public final String CAMPAIGN_ID = "CampaignId";
     public final String BASE_DEEPLINK = "ty://?Page=Product&ContentId=";
     public final String BASE_WEB_URL = "https://www.trendyol.com/brand/name-p-";
 
     public final String DEEPLINK_HOME_TEMPLATE = "ty://?Page=Home";
     public final String WEB_URL_HOME_TEMPLATE = "https://www.trendyol.com";
+
+    public static final String DEEP_LINK_PRODUCT_DETAIL_PARAM = "Product";
+    public static final String DEEP_LINK_SEARCH_PARAM = "Search";
 
     public final String DEEPLINK_SEARCH_TEMPLATE = "ty://?Page=Search&Query=${Query}";
     public final String WEB_URL_SEARCH_TEMPLATE = "https://www.trendyol.com/sr?q=${Query}";
