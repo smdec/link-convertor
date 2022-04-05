@@ -39,7 +39,7 @@ public class LinkConverterController {
      * @return ResponseEntity with UrlDTO that wraps converted link and http status code
      */
     @PostMapping("web-url")
-    public ResponseEntity<WebUrlResponse> DeeplinkToUrl(@RequestBody UrlDtoRequest deeplink) {
+    public ResponseEntity<WebUrlResponse> deeplinkToUrl(@RequestBody UrlDtoRequest deeplink) {
         return ResponseEntity.ok(service.deeplinkToUrl(deeplink));
     }
 }

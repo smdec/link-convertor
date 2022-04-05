@@ -8,6 +8,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 
 import java.net.MalformedURLException;
+import java.net.URISyntaxException;
 
 /**
  * Represents logic for resolving deep link strategy to be used upon conversion of web url to deep link
@@ -29,7 +30,7 @@ public class UrlConvertor {
     public String convertToDeepLink(String origin) {
         try {
             return deepLinkFactory.getConvertor(origin).convert(origin);
-        } catch (MalformedURLException e) {
+        } catch (MalformedURLException | URISyntaxException e) {
             log.error(e.getMessage());
             throw new InvalidLinkException(e.getMessage());
         }
@@ -44,7 +45,7 @@ public class UrlConvertor {
     public String convertToUrl(String origin) {
         try {
             return urlConvertorFactory.getConvertor(origin).convert(origin);
-        } catch (MalformedURLException e) {
+        } catch (MalformedURLException | URISyntaxException e) {
             log.error(e.getMessage());
             throw new InvalidLinkException(e.getMessage());
         }

@@ -12,3 +12,14 @@ spring:
         show_sql: false
 server:
   port: 8081
+
+params:
+  deeplinks:
+    boutiqueId: 'CampaignId'
+    merchantId: 'MerchantId'
+    productId: 'ContentId'
+    page: 'Page'
+
+  weblinks:
+    CampaignId: 'boutiqueId'
+    MerchantId: 'merchantId'

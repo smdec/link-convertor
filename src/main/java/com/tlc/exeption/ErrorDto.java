@@ -1,8 +1,14 @@
 package com.tlc.exeption;
 
-import lombok.Data;
-
-@Data
 public class ErrorDto extends RuntimeException {
-    private String errorMassage;
+    private final String status;
+
+    public ErrorDto(String message, String status) {
+        super(message);
+        this.status = status;
+    }
+
+    public String getStatus() {
+        return status;
+    }
 }

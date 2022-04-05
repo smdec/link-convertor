@@ -26,7 +26,7 @@ public class WebUrlConvertorStrategy {
         this.homeWebUrlConvertor = homeWebUrlConvertor;
         this.productDetailWebUrlConvertor = productDetailWebUrlConvertor;
         this.searchWebUrlConvertor = searchWebUrlConvertor;
-        this.strategies = List.of(productDetailWebUrlConvertor, searchWebUrlConvertor, homeWebUrlConvertor);
+        this.strategies = List.of(this.productDetailWebUrlConvertor, this.searchWebUrlConvertor, this.homeWebUrlConvertor);
     }
 
     /**

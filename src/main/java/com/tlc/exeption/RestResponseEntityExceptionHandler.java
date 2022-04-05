@@ -18,14 +18,14 @@ public class RestResponseEntityExceptionHandler extends ResponseEntityExceptionH
     @ExceptionHandler(Exception.class)
     @ResponseBody
     public ResponseEntity<ErrorDto> globalExceptionHandler(ErrorDto ex) {
-        log.error("Error executing request", ex.getErrorMassage());
+        log.error("Error executing request {}", ex.getStatus());
         return ResponseEntity.status(500).body(ex);
     }
 
     @ExceptionHandler(EntityNotFoundException.class)
     @ResponseBody
     public ResponseEntity<ErrorDto> notFoundExceptionHandler(ErrorDto ex) {
-        log.error("Entity not found", ex.getErrorMassage());
+        log.error("Entity not found {}", ex.getStatus());
         return ResponseEntity.status(404).body(ex);
     }
 }

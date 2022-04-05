@@ -27,7 +27,7 @@ public class DeepLinkConvertorStrategy {
         this.homeDeeplinkConvertor = homeDeeplinkConvertor;
         this.productDetailDeeplinkConvertor = productDetailDeeplinkConvertor;
         this.searchDeeplinkConvertor = searchDeeplinkConvertor;
-        this.strategies = List.of(productDetailDeeplinkConvertor, searchDeeplinkConvertor, homeDeeplinkConvertor);
+        this.strategies = List.of(this.productDetailDeeplinkConvertor, this.searchDeeplinkConvertor, this.homeDeeplinkConvertor);
     }
 
     /**

@@ -4,34 +4,20 @@ import lombok.experimental.UtilityClass;
 
 @UtilityClass
 public class Constant {
-    public final int ONE = 1;
-    public final int TWO = 2;
-    public final int THREE = 3;
-    public final int FOUR = 4;
-
+    public final String DEEPLINK_SEARCH_TEMPLATE = "ty://?Page=Search&Query=${Query}";
+    public final String WEB_URL_SEARCH_TEMPLATE = "https://www.trendyol.com/sr?q=${Query}";
+    public final String WEB_URL_PRODUCT_PAGE = "https://www.trendyol.com/brand/name-p-";
+    public final String WEB_URL_PRODUCT_ID_PARAM = "productId";
     public final String WEB_URL_PRODUCT_DETAIL_PARAM = "-p-";
     public final String WEB_URL_SEARCH_PAGE_PARAM = "/sr";
-
-    public final String CAMPAIGN_ID = "CampaignId";
-    public final String BASE_DEEPLINK = "ty://?Page=Product&ContentId=";
-    public final String BASE_WEB_URL = "https://www.trendyol.com/brand/name-p-";
 
     public final String DEEPLINK_HOME_TEMPLATE = "ty://?Page=Home";
     public final String WEB_URL_HOME_TEMPLATE = "https://www.trendyol.com";
 
-    public static final String DEEP_LINK_PRODUCT_DETAIL_PARAM = "Product";
-    public static final String DEEP_LINK_SEARCH_PARAM = "Search";
-
-    public final String DEEPLINK_SEARCH_TEMPLATE = "ty://?Page=Search&Query=${Query}";
-    public final String WEB_URL_SEARCH_TEMPLATE = "https://www.trendyol.com/sr?q=${Query}";
-
-    public final String WEB_URL_ONLY_CONTENT = BASE_WEB_URL.concat("${ContentId}");
-    public final String WEB_URL_CONTENT_CAMPAIGN = BASE_WEB_URL.concat("${ContentId}?boutiqueId=${CampaignId}");
-    public final String WEB_URL_CONTENT_MERCHANT = BASE_WEB_URL.concat("${ContentId}?merchantId=${MerchantId}");
-    public final String WEB_URL_CONTENT_CAMPAIGN_MERCHANT = BASE_WEB_URL.concat("${ContentId}?boutiqueId=${CampaignId}&merchantId=${MerchantId}");
-
-    public final String DEEPLINK_ONLY_CONTENT = BASE_DEEPLINK.concat("${ContentId}");
-    public final String DEEPLINK_CONTENT_CAMPAIGN = BASE_DEEPLINK.concat("${ContentId}&CampaignId=${CampaignId}");
-    public final String DEEPLINK_CONTENT_MERCHANT = BASE_DEEPLINK.concat("${ContentId}&MerchantId=${MerchantId}");
-    public final String DEEPLINK_CONTENT_CAMPAIGN_MERCHANT = BASE_DEEPLINK.concat("${ContentId}&CampaignId=${CampaignId}&MerchantId=${MerchantId}");
+    public final String DEEP_LINK_HOST = "ty";
+    public final String DEEP_LINK_PAGE_PARAM = "page";
+    public final String DEEP_LINK_PAGE_PARAM_VALUE = "Product";
+    public final String DEEP_LINK_CONTENT_ID_PARAM = "ContentId";
+    public final String DEEP_LINK_PRODUCT_DETAIL_PARAM = "Product";
+    public final String DEEP_LINK_SEARCH_PARAM = "Search";
 }
