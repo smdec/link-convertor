@@ -2,6 +2,9 @@ package com.tlc.constants;
 
 import lombok.experimental.UtilityClass;
 
+/**
+ * Application constants holder class
+ */
 @UtilityClass
 public class Constant {
     public final String DEEPLINK_SEARCH_TEMPLATE = "ty://?Page=Search&Query=${Query}";
