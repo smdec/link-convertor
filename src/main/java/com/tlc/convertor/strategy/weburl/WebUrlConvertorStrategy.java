@@ -5,7 +5,6 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import java.net.MalformedURLException;
 import java.util.List;
 
 /**
@@ -35,8 +34,7 @@ public class WebUrlConvertorStrategy {
      * @param url web url to be converted
      * @return deep link
      */
-    public Convertor getConvertor(String url) throws MalformedURLException {
-
+    public Convertor getConvertor(String url) {
         return strategies.stream()
                 .filter(s -> s.isStrategyAcceptable(url))
                 .findFirst()

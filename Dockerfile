@@ -1,4 +1,8 @@
-FROM adoptopenjdk/openjdk16:jre-16_36
-VOLUME /tmp
-COPY target/*.jar link-converter.jar
-ENTRYPOINT ["java","-Dspring.profiles.active=doc","-jar","/link-converter.jar"]
+FROM openjdk:17-alpine
+WORKDIR /app
+ADD docker_postgres_init.sql /docker-entrypoint-initdb.d
+COPY .mvn/ .mvn
+COPY mvnw pom.xml ./
+RUN ./mvnw -Dmaven.test.skip=true dependency:go-offline
+COPY src ./src
+CMD ["./mvnw", "spring-boot:run", "-Dspring-boot.run.profiles=doc"]

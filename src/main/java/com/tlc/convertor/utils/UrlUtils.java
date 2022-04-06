@@ -15,6 +15,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * Util helper class with methods for working with url data
+ */
 @UtilityClass
 @Slf4j
 public class UrlUtils {

@@ -17,15 +17,15 @@ import javax.persistence.EntityNotFoundException;
 public class RestResponseEntityExceptionHandler extends ResponseEntityExceptionHandler {
     @ExceptionHandler(Exception.class)
     @ResponseBody
-    public ResponseEntity<ErrorDto> globalExceptionHandler(ErrorDto ex) {
-        log.error("Error executing request {}", ex.getStatus());
+    public ResponseEntity<InvalidLinkException> globalExceptionHandler(InvalidLinkException ex) {
+        log.error("Error executing request {}", ex.getMessage());
         return ResponseEntity.status(500).body(ex);
     }
 
     @ExceptionHandler(EntityNotFoundException.class)
     @ResponseBody
-    public ResponseEntity<ErrorDto> notFoundExceptionHandler(ErrorDto ex) {
-        log.error("Entity not found {}", ex.getStatus());
+    public ResponseEntity<InvalidLinkException> notFoundExceptionHandler(InvalidLinkException ex) {
+        log.error("Entity not found {}", ex.getMessage());
         return ResponseEntity.status(404).body(ex);
     }
 }
